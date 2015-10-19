@@ -33,7 +33,7 @@ namespace BitmapGenerator
             rndbit.Width = pic.Width;
             rndbit.Height = pic.Height;
             pic.Image = rndbit.Generate();
-            this.Text = "Done";
+            this.Text = "Done - press ctrl+s to save - " + rndbit.Width + " * " + rndbit.Height;
         }
 
         private void MainForm_Resize(object sender, EventArgs e)
