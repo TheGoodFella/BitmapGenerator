@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pic = new System.Windows.Forms.PictureBox();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pic)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,15 +42,21 @@
             this.pic.TabIndex = 0;
             this.pic.TabStop = false;
             // 
+            // saveFileDialog
+            // 
+            this.saveFileDialog.Filter = "Bitmap Image (.bmp)|*.bmp|Jpeg Image (.jpg)|*.jpg|PNG Image (.png)|*.png";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(606, 473);
             this.Controls.Add(this.pic);
+            this.KeyPreview = true;
             this.Name = "MainForm";
             this.Text = "Form";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
             this.Resize += new System.EventHandler(this.MainForm_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.pic)).EndInit();
             this.ResumeLayout(false);
@@ -59,6 +66,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pic;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
     }
 }
 

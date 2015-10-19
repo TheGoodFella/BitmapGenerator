@@ -40,5 +40,14 @@ namespace BitmapGenerator
         {
             SetPic();
         }
+
+        private void MainForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.S)
+            {
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    rndbit.SaveImage(saveFileDialog.FileName);
+            }
+        }
     }
 }
