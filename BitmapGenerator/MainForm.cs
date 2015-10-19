@@ -34,7 +34,7 @@ namespace BitmapGenerator
             rndbit.Width = pic.Width;
             rndbit.Height = pic.Height;
             pic.Image = rndbit.Generate();
-            this.Text = "Done - " + rndbit.Width + " * " + rndbit.Height;
+            this.Text = "Done - picture resolution: " + rndbit.Width + " * " + rndbit.Height +" - n pixels: " + (rndbit.Width * rndbit.Height);
         }
 
         private void MainForm_Resize(object sender, EventArgs e)
@@ -58,6 +58,18 @@ namespace BitmapGenerator
             if (e.KeyCode == Keys.Enter && notPressed)
             {
                 SetPic();
+                notPressed = false;
+            }
+
+            if (e.KeyCode == Keys.F3 && notPressed)
+            {
+                SetSize setPicSize = new SetSize(pic.Width, pic.Height);
+                if (setPicSize.ShowDialog() == DialogResult.OK)
+                {
+                    this.ClientSize = new Size(setPicSize.picWidth, setPicSize.picHeight);
+                    //this.Height = ;
+                }
+
                 notPressed = false;
             }
 
@@ -85,7 +97,8 @@ namespace BitmapGenerator
                     + Environment.NewLine
                     + Environment.NewLine + "ctrl+s : save image"
                     + Environment.NewLine + "ENTER : Refresh image"
-                    + Environment.NewLine + "F11 : Toggle full screen "
+                    + Environment.NewLine + "F11 : Toggle full screen"
+                    + Environment.NewLine + "F3 : Set picture resolution"
                     , "Keys shortcut", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
