@@ -42,7 +42,9 @@ namespace BitmapGenerator
             Dictionary<string, System.Drawing.Imaging.ImageFormat> imageFormat = new Dictionary<string, System.Drawing.Imaging.ImageFormat>();
             imageFormat.Add(".bmp", System.Drawing.Imaging.ImageFormat.Bmp);
             imageFormat.Add(".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+            imageFormat.Add(".jpeg", System.Drawing.Imaging.ImageFormat.Jpeg);
             imageFormat.Add(".png", System.Drawing.Imaging.ImageFormat.Png);
+
             System.Drawing.Imaging.ImageFormat format;
             string ext = Path.GetExtension(path);
             imageFormat.TryGetValue(ext, out format);
