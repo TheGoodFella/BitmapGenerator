@@ -29,9 +29,11 @@ namespace BitmapGenerator
 
         void SetPic()
         {
+            this.Text = "Loading...";
             rndbit.Width = pic.Width;
             rndbit.Height = pic.Height;
             pic.Image = rndbit.Generate();
+            this.Text = "Done";
         }
 
         private void MainForm_Resize(object sender, EventArgs e)
