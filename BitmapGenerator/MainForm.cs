@@ -13,6 +13,7 @@ namespace BitmapGenerator
     public partial class MainForm : Form
     {
         RandomBitmap rndbit;
+        bool maximize = false;
 
         public MainForm()
         {
@@ -60,12 +61,31 @@ namespace BitmapGenerator
                 notPressed = false;
             }
 
+            if (e.KeyCode == Keys.F11 && notPressed)
+            {
+                if (maximize)
+                {
+                    FormBorderStyle = FormBorderStyle.Sizable;
+                    WindowState = FormWindowState.Normal;
+                    maximize = !maximize;
+                }
+                else
+                {
+                    FormBorderStyle = FormBorderStyle.None;
+                    WindowState = FormWindowState.Maximized;
+                    maximize = !maximize;
+                }
+
+                notPressed = false;
+            }
+
             if (e.KeyCode == Keys.F1)
             {
                 MessageBox.Show("Keys shortcut"
                     + Environment.NewLine
                     + Environment.NewLine + "ctrl+s : save image"
                     + Environment.NewLine + "ENTER : Refresh image"
+                    + Environment.NewLine + "F11 : Toggle full screen "
                     , "Keys shortcut", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
